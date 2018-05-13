@@ -1,7 +1,7 @@
 <?php
 	$host 		= 'localhost';
-	$user 		= 'Grevane';
-	$pass 		= 'Grevane3250';
+	$user 		= 'root';
+	$pass 		= '';
 	$database 	= 'booklender';
 
 	$db = new PDO('mysql:host='.$host.'; dbname='.$database, $user, $pass);
