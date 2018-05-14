@@ -8,8 +8,7 @@
 	if(isset($_POST['password']))
 	{	$password = $_POST['password'];	}
 	
-	$q = 'SELECT * FROM user WHERE username=:username';
-	$query = $db->prepare($q);
+	$query = $db->prepare('SELECT * FROM user WHERE username=:username');
 	$query->execute(array(':username' => $username));
 
 	if($query->rowCount() == 0)
