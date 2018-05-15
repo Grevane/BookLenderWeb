@@ -22,30 +22,35 @@
 	$active = ['','active',''];
 	include('script/navbar.php');
 ?>
-	<div>
-		<table class="table table-hover">
-			<thead>
-				<tr>
-					<th>Title</th>
-					<th>Author</th>
-					<th>Cover Type</th>
-					<th>Action</th>
-				</tr>
-			</thead>
-			<tbody>
+	<div class="jBackground">
+		<div class="jBigDiv">
+			<div class="jSmallDiv" style="padding-top: 0rem; padding-bottom: 3rem;">
+				<a class="btn btn-lg btn-primary btn-block" href="book.php">Add a Book</a>
+			</div>
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th>Title</th>
+						<th>Author</th>
+						<th>Cover Type</th>
+						<th>Action</th>
+					</tr>
+				</thead>
+				<tbody>
 <?php
-		$query = $db->prepare('SELECT * FROM book WHERE userID=:userID');
+		$query = $db->prepare('SELECT * FROM book WHERE userID=:userID ORDER BY authorLast');
 		$query->execute(array(':userID' => $id));
 		foreach($query as $row)
 		{ ?>
-				<tr>
-					<th><?php echo $row['title']; ?></th>
-					<th><?php echo $row['authorFirst'] . " " . $row['authorLast']; ?></th>
-					<th><?php echo $row['coverType']; ?></th>
-					<th></th>
-				</tr>
+					<tr>
+						<th><?php echo $row['title']; ?></th>
+						<th><?php echo $row['authorFirst'] . " " . $row['authorLast']; ?></th>
+						<th><?php echo $row['coverType']; ?></th>
+						<th><a class="btn btn-success" href="script/loanBook.php?bookID=<?php echo $row['bookID']; ?>">Loan</a>&nbsp;<a class="btn btn-danger" href="script/deleteBook.php?bookID=<?php echo $row['bookID']; ?>">Delete</a></th>
+					</tr>
 <?php 	} ?>
-			</tbody>
-		</table>
+				</tbody>
+			</table>
+		</div>
 	</div>
 </body>

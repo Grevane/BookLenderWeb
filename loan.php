@@ -22,5 +22,9 @@
 	$active = ['','active',''];
 	include('script/navbar.php');
 ?>
-
+	<div class="jBackground">
+		<div class="jBigDiv">
+			
+		</div>
+	</div>
 </body>

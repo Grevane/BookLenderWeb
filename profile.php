@@ -25,33 +25,35 @@
 	$query1->execute(array(':userID' => $id));
 	$row = $query1->fetch(PDO::FETCH_ASSOC);
 ?>
-	<form action="profile.php" method="post" enctype="multipart/form-data">
-		<div class="form-group row">
-			<label for="user" class="col-2 col-form-label">Username</label>
-			<div class="col-10">
-				<input type="text" class="form-control" id="user" name="username" placeholder="<?php echo $row['username']; ?>">
-			</div>
-		</div>
-		<div class="form-group row">
-			<label for="pass" class="col-2 col-form-label">Password</label>
-			<div class="col-10">
-				<input type="password" class="form-control" id="pass" name="password">
-			</div>
-		</div>
-		<div class="form-group row">
-			<label for="first" class="col-2 col-form-label">First Name</label>
-			<div class="col-10">
-				<input type="text" class="form-control" id="first" name="userFirst" placeholder="<?php echo $row['userFirst']; ?>">
-			</div>
-		</div>
-		<div class="form-group row">
-			<label for="last" class="col-2 col-form-label">Last Name</label>
-			<div class="col-10">
-				<input type="text" class="form-control" id="last" name="userLast" placeholder="<?php echo $row['userLast']; ?>">
-			</div>
-		</div>
-		<br/>
-		<button class="btn btn-primary" type="submit" name="submit">Save</button><a class="btn btn-danger" href="home.php">Cancel</a>
+	<div class="jBackground">
+		<div class="jBigDiv">
+			<form action="profile.php" method="post" enctype="multipart/form-data">
+				<div class="form-group row">
+					<label for="user" class="col-2 col-form-label">Username</label>
+					<div class="col-10">
+						<input type="text" class="form-control" id="user" name="username" placeholder="<?php echo $row['username']; ?>">
+					</div>
+				</div>
+				<div class="form-group row">
+					<label for="pass" class="col-2 col-form-label">Password</label>
+					<div class="col-10">
+						<input type="password" class="form-control" id="pass" name="password">
+					</div>
+				</div>
+				<div class="form-group row">
+					<label for="first" class="col-2 col-form-label">First Name</label>
+					<div class="col-10">
+						<input type="text" class="form-control" id="first" name="userFirst" placeholder="<?php echo $row['userFirst']; ?>">
+					</div>
+				</div>
+				<div class="form-group row">
+					<label for="last" class="col-2 col-form-label">Last Name</label>
+					<div class="col-10">
+						<input type="text" class="form-control" id="last" name="userLast" placeholder="<?php echo $row['userLast']; ?>">
+					</div>
+				</div>
+				<br/>
+				<button class="btn btn-primary" type="submit" name="submit">Save</button>&nbsp;<a class="btn btn-danger" href="home.php">Cancel</a>
 <?php
 		if(isset($_REQUEST['submit']))
 		{
@@ -99,5 +101,7 @@
 			}
 		}
 ?>
-	</form>
+			</form>
+		</div>
+	</div>
 </body>

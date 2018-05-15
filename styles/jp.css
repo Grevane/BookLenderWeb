@@ -1,3 +1,29 @@
+.jBackground {
+	background-color: #ADD8E6;
+	background-image: url("../img/background.jpg");
+	background-repeat: repeat;
+	height: 100%;
+	min-height: 100vh;
+}
+
 .jDanger {
 	color: red;
+}
+
+.jBigDiv {
+	background-color: #FFFFFF;
+	margin-left: 5rem;
+	margin-right: 5rem;
+	padding: 3rem;
+}
+
+.jSmallDiv {
+	background-color: #FFFFFF;
+	margin-left: 20rem;
+	margin-right: 20rem;
+	padding: 5rem;
+}
+
+.jBigButton {
+	min-width: 10rem;
 }
