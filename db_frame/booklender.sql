@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 09, 2018 at 08:54 PM
+-- Generation Time: May 16, 2018 at 03:17 PM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.1
 
@@ -61,10 +61,18 @@ CREATE TABLE `loan` (
 CREATE TABLE `user` (
   `userID` int(9) NOT NULL,
   `username` varchar(35) NOT NULL,
-  `password` varchar(35) NOT NULL,
+  `password` varchar(255) NOT NULL,
   `userLast` varchar(35) DEFAULT NULL,
   `userFirst` varchar(35) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`userID`, `username`, `password`, `userLast`, `userFirst`) VALUES
+(2, 'admin', '$2y$10$fu2eSkyyEi2xM2WDnREIPuO2ueogJOla8dsyd3wBYliqZUZf/Xmmu', '', 'Joshua'),
+(3, 'Grevane', '$2y$10$5vrJ5I6OkmdNCHo835XuL.Lr/3YLOemhhk2yMnNH7ECIw2g/7sUOK', 'DuMorne', 'Grevane');
 
 --
 -- Indexes for dumped tables
@@ -111,7 +119,7 @@ ALTER TABLE `loan`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `userID` int(9) NOT NULL AUTO_INCREMENT;
+  MODIFY `userID` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables

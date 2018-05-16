@@ -3,6 +3,9 @@
 	session_start();
 	$token = $_SESSION['sess_token'];
 	$id = $_SESSION['sess_id'];
+	$err = 0;
+	if(isset($_GET['err']))
+	{	$err = $_GET['err'];	}
 
 	if(!isset($_SESSION['sess_username']) || $token != true)
 	{
@@ -27,6 +30,15 @@
 			<div class="jSmallDiv" style="padding-top: 0rem; padding-bottom: 3rem;">
 				<a class="btn btn-lg btn-primary btn-block" href="book.php">Add a Book</a>
 			</div>
+<?php
+			$errors = array(1=>"This book is currently on loan, and cannot be deleted.",
+							2=>"I dunno what happened.");
+
+			if($err != 0)
+			{
+				echo '<p class="text-danger text-center">'.$errors[$err].'</p>';
+			}
+?>
 			<table class="table table-hover">
 				<thead>
 					<tr>
@@ -46,7 +58,7 @@
 						<th><?php echo $row['title']; ?></th>
 						<th><?php echo $row['authorFirst'] . " " . $row['authorLast']; ?></th>
 						<th><?php echo $row['coverType']; ?></th>
-						<th><a class="btn btn-success" href="script/loanBook.php?bookID=<?php echo $row['bookID']; ?>">Loan</a>&nbsp;<a class="btn btn-danger" href="script/deleteBook.php?bookID=<?php echo $row['bookID']; ?>">Delete</a></th>
+						<th><a class="btn btn-success" href="loan.php?bookID=<?php echo $row['bookID']; ?>">Loan</a>&nbsp;<a class="btn btn-danger" href="script/deleteBook.php?bookID=<?php echo $row['bookID']; ?>">Delete</a></th>
 					</tr>
 <?php 	} ?>
 				</tbody>

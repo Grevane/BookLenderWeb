@@ -24,7 +24,7 @@
 ?>
 	<div class="jBackground">
 		<div class="jBigDiv">
-			<form action="script/addBook.php">
+			<form action="script/addBook.php" method="post" enctype="multipart/form-data">
 				<div class="form-group row">
 					<label for="book" class="col-2 col-form-label">Title</label>
 					<div class="col-10">

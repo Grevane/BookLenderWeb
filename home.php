@@ -24,6 +24,7 @@
 ?>
 	<div class="jBackground">
 		<div class="jBigDiv">
+			<h1>#PUT SOMETHING HERE THEN STYLE</h1>
 			<table class="table table-hover">
 				<thead>
 					<tr>
@@ -43,15 +44,17 @@
 					<tr>
 						<th>
 <?php
+			$bookID = $row['bookID'];
 			$query2 = $db->prepare('SELECT title FROM book WHERE bookID=:bookID AND userID=:userID');
-			$query2->execute(array(':bookID' => $row['bookID'], ':userID' => $id));
-			echo $query2->fetch(PDO::FETCH_ASSOC);
+			$query2->execute(array(':bookID' => $bookID, ':userID' => $id));
+			$title = $query2->fetch(PDO::FETCH_ASSOC);
+			echo $title['title'];
 ?>
 						</th>
 						<th><?php echo $row['borrowerName']; ?></th>
 						<th><?php echo $row['borrowerPhone']; ?></th>
 						<th><?php echo $row['dateIssued']; ?></th>
-						<th></th>
+						<th><a class="btn btn-success" href="script/returnBook.php?loanID=<?php echo $row['loanID']; ?>">Return</a></th>
 					</tr>
 <?php 	} ?>
 				</tbody>
