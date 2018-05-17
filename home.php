@@ -24,7 +24,7 @@
 ?>
 	<div class="jBackground">
 		<div class="jBigDiv">
-			<h1>#PUT SOMETHING HERE THEN STYLE</h1>
+			<h1 class="jTitle">Books Currently on Loan</h1>
 			<table class="table table-hover">
 				<thead>
 					<tr>
@@ -54,11 +54,23 @@
 						<th><?php echo $row['borrowerName']; ?></th>
 						<th><?php echo $row['borrowerPhone']; ?></th>
 						<th><?php echo $row['dateIssued']; ?></th>
-						<th><a class="btn btn-success" href="script/returnBook.php?loanID=<?php echo $row['loanID']; ?>">Return</a></th>
+						<th><button class="btn btn-success" onclick="jpConfirm()">Return</button></th>
 					</tr>
 <?php 	} ?>
 				</tbody>
 			</table>
 		</div>
 	</div>
+	
+<script>
+	function jpConfirm()
+	{
+		var result = confirm("Have you gotten this book back?");
+		
+		if(result)
+		{
+			window.location = "script/returnBook.php?loanID=<?php echo $row['loanID']; ?>";
+		}
+	}
+</script>
 </body>

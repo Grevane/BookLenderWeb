@@ -58,11 +58,23 @@
 						<th><?php echo $row['title']; ?></th>
 						<th><?php echo $row['authorFirst'] . " " . $row['authorLast']; ?></th>
 						<th><?php echo $row['coverType']; ?></th>
-						<th><a class="btn btn-success" href="loan.php?bookID=<?php echo $row['bookID']; ?>">Loan</a>&nbsp;<a class="btn btn-danger" href="script/deleteBook.php?bookID=<?php echo $row['bookID']; ?>">Delete</a></th>
+						<th><a class="btn btn-success" href="loan.php?bookID=<?php echo $row['bookID']; ?>">Loan</a>&nbsp;<button class="btn btn-danger" onclick="jpConfirm()">Delete</button></th>
 					</tr>
 <?php 	} ?>
 				</tbody>
 			</table>
 		</div>
 	</div>
+	
+<script>
+	function jpConfirm()
+	{
+		var result = confirm("Do you wish to delete this book?");
+		
+		if(result)
+		{
+			window.location = "script/deleteBook.php?bookID=<?php echo $row['bookID']; ?>";
+		}
+	}
+</script>
 </body>
