@@ -6,6 +6,9 @@
 	$err = 0;
 	if(isset($_GET['err']))
 	{	$err = $_GET['err'];	}
+	$msg = 0;
+	if(isset($_GET['msg']))
+	{	$msg = $_GET['msg'];	}
 
 	if(!isset($_SESSION['sess_username']) || $token != true)
 	{
@@ -37,6 +40,14 @@
 			if($err != 0)
 			{
 				echo '<p class="text-danger text-center">'.$errors[$err].'</p>';
+			}
+			
+			$message = array(1=>"You have a new book in your collection!",
+							 2=>"Nothing happened.");
+
+			if($msg != 0)
+			{
+				echo '<p class="text-success text-center">'.$message[$msg].'</p>';
 			}
 ?>
 			<table class="table table-hover">

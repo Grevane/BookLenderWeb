@@ -23,6 +23,6 @@
 										 VALUES (:userID, :bookID, :borrowerName, :borrowerPhone, :dateIssued)');
 		$query2->execute(array(':userID' => $id, ':bookID' => $bookID, ':borrowerName' => $borrowerName, ':borrowerPhone' => $borrowerPhone, ':dateIssued' => $dateIssued));
 
-		header('Location: ../home.php');
+		header('Location: ../home.php?msg=1');
 	}
 ?>

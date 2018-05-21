@@ -97,7 +97,7 @@
 				$query4 = $db->prepare("UPDATE user SET username=:username, password=:password, userLast=:userLast, userFirst=:userFirst WHERE userID=:userID");
 				$query4->execute(array(':username' => $username, ':password' => $password, ':userLast' => $userLast, ':userFirst' => $userFirst, ':userID' => $id));
 
-				header('Location: home.php');
+				header('Location: home.php?msg=2');
 			}
 		}
 ?>

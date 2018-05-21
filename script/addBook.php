@@ -13,5 +13,5 @@
 									 VALUES (:userID, :title, :authorLast, :authorFirst, :coverType)');
 	$query->execute(array(':userID' => $id, ':title' => $title, ':authorLast' => $authorLast, ':authorFirst' => $authorFirst, ':coverType' => $coverType));
 	
-	header('Location: ../collection.php');
+	header('Location: ../collection.php?msg=1');
 ?>

@@ -3,6 +3,9 @@
 	session_start();
 	$token = $_SESSION['sess_token'];
 	$id = $_SESSION['sess_id'];
+	$msg = 0;
+	if(isset($_GET['msg']))
+	{	$msg = $_GET['msg'];	}
 
 	if(!isset($_SESSION['sess_username']) || $token != true)
 	{
@@ -24,6 +27,15 @@
 ?>
 	<div class="jBackground">
 		<div class="jBigDiv">
+<?php
+			$message = array(1=>"Your book has been loaned out. Make sure to get it back!",
+							 2=>"Your Profile has been updated.");
+
+			if($msg != 0)
+			{
+				echo '<p class="text-success text-center">'.$message[$msg].'</p>';
+			}
+?>
 			<h1 class="jTitle">Books Currently on Loan</h1>
 			<table class="table table-hover">
 				<thead>
